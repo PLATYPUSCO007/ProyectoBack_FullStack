@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\estacionamiento;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EstacionamientoController extends Controller
 {
@@ -56,7 +57,8 @@ class EstacionamientoController extends Controller
     public function show(Request $request)
     {
         //
-        $estacionamiento = estacionamiento::find($request->id);
+        //$estacionamiento = estacionamiento::find($request->id);
+        $estacionamiento = DB::select('SELECT E.*, V.tipo_vehiculo_id, T.nombre FROM `estacionamientos` E INNER JOIN vehiculos V ON E.vehiculo_placa = V.placa INNER JOIN tipo_vehiculos T ON V.tipo_vehiculo_id = T.id WHERE E.id = ?', [$request->id]);
         return $estacionamiento;
     }
 

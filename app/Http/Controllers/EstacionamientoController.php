@@ -106,4 +106,40 @@ class EstacionamientoController extends Controller
         $estacionamiento = estacionamiento::destroy($request->id);
         return $estacionamiento;
     }
+
+    /**
+     * Return values.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function destroyOficial()
+    {
+        //
+        $estacionamientos = DB::table('estacionamientos')
+            ->join('vehiculos', function ($join){
+                $join->on('estacionamientos.vehiculo_placa', '=', 'vehiculos.placa')
+                    ->where('vehiculos.tipo_vehiculo_id', '=', '1');
+            })
+            ->delete();
+
+        return $estacionamientos;
+    }
+
+    /**
+     * Return values.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function updateResidente()
+    {
+        //
+        $estacionamientos = DB::table('estacionamientos')
+            ->join('vehiculos', function ($join){
+                $join->on('estacionamientos.vehiculo_placa', '=', 'vehiculos.placa')
+                    ->where('vehiculos.tipo_vehiculo_id', '=', '2');
+            })
+            ->update(['estacionamientos.importe' => '0', 'estacionamientos.total_tiempo' => '0']);
+
+        return $estacionamientos;
+    }
 }

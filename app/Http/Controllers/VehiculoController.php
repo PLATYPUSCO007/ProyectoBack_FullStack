@@ -83,7 +83,7 @@ class VehiculoController extends Controller
     {
         //
         $vehiculo = Vehiculo::where('placa', $request->placa)
-            ->update(['tipo_vehiculo_id' => $request->tipo]);
+            ->update(['tipo_vehiculo_id' => $request->tipo_vehiculo_id]);
 
         return $vehiculo;
     }

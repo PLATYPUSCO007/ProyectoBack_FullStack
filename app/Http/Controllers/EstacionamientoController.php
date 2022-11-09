@@ -45,7 +45,7 @@ class EstacionamientoController extends Controller
         $estacionamiento->importe = $request->importe;
         $estacionamiento->total_tiempo = $request->total_tiempo;
         $estacionamiento->vehiculo_placa = $request->vehiculo_placa;
-        $estacionamiento->save();
+        return $estacionamiento->save();
     }
 
     /**
@@ -58,7 +58,7 @@ class EstacionamientoController extends Controller
     {
         //
         //$estacionamiento = estacionamiento::find($request->id);
-        $estacionamiento = DB::select('SELECT E.*, V.tipo_vehiculo_id, T.nombre FROM `estacionamientos` E INNER JOIN vehiculos V ON E.vehiculo_placa = V.placa INNER JOIN tipo_vehiculos T ON V.tipo_vehiculo_id = T.id WHERE E.id = ?', [$request->id]);
+        $estacionamiento = DB::select('SELECT E.*, V.tipo_vehiculo_id, T.nombre FROM `estacionamientos` E INNER JOIN vehiculos V ON E.vehiculo_placa = V.placa INNER JOIN tipo_vehiculos T ON V.tipo_vehiculo_id = T.id WHERE E.vehiculo_placa = ? AND E.id IN (SELECT MAX(id) FROM estacionamientos WHERE vehiculo_placa = ?)', [$request->placa, $request->placa]);
         return $estacionamiento;
     }
 

@@ -36,7 +36,7 @@ Route::delete('tipos/{id}', [TipoVehiculoController::class, 'destroy']);
 
 //Rutas de Estacionamiento
 Route::get('estacionamiento', [EstacionamientoController::class, 'index']);
-Route::get('estacionamiento/{id}', [EstacionamientoController::class, 'show']);
+Route::get('estacionamiento/{placa}', [EstacionamientoController::class, 'show']);
 Route::post('estacionamiento', [EstacionamientoController::class, 'store']);
 Route::put('estacionamiento/{id}', [EstacionamientoController::class, 'update']);
 Route::delete('estacionamiento/{id}', [EstacionamientoController::class, 'destroy']);

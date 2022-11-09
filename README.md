@@ -26,7 +26,7 @@ php artisan serve
 http://127.0.0.1:8000
 ```
 ## EndPoints
-Funcionamiento breve de cada pagina
+Funcionamiento breve de cada EndPoint
 
 | Metodo | EndPoint | Objetivo |
 | ------ | ------ | ------ |

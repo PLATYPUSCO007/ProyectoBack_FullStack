@@ -28,15 +28,16 @@ http://127.0.0.1:8000
 ## EndPoints
 Funcionamiento breve de cada EndPoint
 
-| Metodo | EndPoint | Objetivo |
-| ------ | ------ | ------ |
-| GET | [/estacionamiento] | Obtener todos los registros de estacionamiento |
-| GET | [/estacionamiento/{placa}] | Obtener el ultimo estacionamiento de la placa pasada al EndPoint |
-| POST | [/estacionamiento/updateResidente] | Actualiza los campos de tiempo e importe en el estacionamiento de los vehiculos Residentes  |
-| POST | [/estacionamiento] | Ingresar un nuevo estacionamiento |
-| PUT | [/estacionamiento/{id}] | Actualizar un registro de estacionamiento |
-| DELETE | [/estacionamiento/{id}] | Eliminar un estacionamiento |
-| DELETE | [/estacionamiento/deleteOficial] | Eliminar un los registros de estacionamiento para los vehiculos oficiales |
+| Metodo | EndPoint | Objetivo                                                                                   |
+|--------| ------ |--------------------------------------------------------------------------------------------|
+| GET    | [/estacionamiento] | Obtener todos los registros de estacionamiento                                             |
+| GET    | [/estacionamiento/{placa}] | Obtener el ultimo estacionamiento de la placa pasada al EndPoint                           |
+| POST   | [/estacionamiento/updateResidente] | Actualiza los campos de tiempo e importe en el estacionamiento de los vehiculos Residentes |
+| POST   | [/estacionamiento] | Ingresar un nuevo estacionamiento                                                          |
+| PUT    | [/estacionamiento/{id}] | Actualizar un registro de estacionamiento                                                  |
+| DELETE | [/estacionamiento/{id}] | Eliminar un estacionamiento                                                                |
+| DELETE | [/estacionamiento/deleteOficial] | Eliminar un los registros de estacionamiento para los vehiculos oficiales                  |
+| GET    | [/file/{nameFile}] | Genera el reporte en .xlsx |                                                                |
 
 ## Estructura de objetos
 ### Vehiculo

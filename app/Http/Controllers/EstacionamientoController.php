@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\EstacionamientoExport;
 use App\Models\estacionamiento;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Maatwebsite\Excel\Facades\Excel;
 
 class EstacionamientoController extends Controller
 {
@@ -141,5 +143,15 @@ class EstacionamientoController extends Controller
             ->update(['estacionamientos.importe' => '0', 'estacionamientos.total_tiempo' => '0']);
 
         return $estacionamientos;
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     */
+    public function export(Request $request)
+    {
+        return Excel::download(new EstacionamientoExport, $request->nameFile . '.xlsx');
     }
 }

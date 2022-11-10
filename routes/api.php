@@ -42,3 +42,6 @@ Route::post('estacionamiento/updateResidente', [EstacionamientoController::class
 Route::post('estacionamiento', [EstacionamientoController::class, 'store']);
 Route::put('estacionamiento/{id}', [EstacionamientoController::class, 'update']);
 Route::delete('estacionamiento/{id}', [EstacionamientoController::class, 'destroy']);
+
+//Generacion de archivo
+Route::get('file/{nameFile}', [EstacionamientoController::class, 'export']);
